@@ -18,7 +18,7 @@
         content: " *";
         color: red;
         font-weight: bold;
-            }
+            }         
              </style>    
 </head>
 
@@ -32,12 +32,19 @@
     <main>
         <section id="promo">
             <h2>Welcome Video</h2>
-            <video src="/Users/macbook/Downloads/Promo Video.mp4" controls width="800" autoplay muted>
+            <video controls poster="/Users/macbook/Downloads/poster.jpg" controls width="400">
+               <source src="/Users/macbook/Downloads/Promo Video.mp4" type="video/mp4"> 
                 Your browser does not support the video tag.
             </video>
-            </section>
 
-<!-- Registration form with validation i.e required fields-->            
+            <h3>Listen to the audio below for helpful tips</h3>
+            <audio src="audio/my_audio.mp3" controls>
+                Your browser does not support the audio tag.
+            </audio>
+            </section> <br>
+
+<!-- Registration form with validation i.e required fields-->    
+        <h3>Fill in the details below to register for the CineFlow Creator Program.</h3>         
         <section id="registration">
             <form action="/submit-registration" method="POST" enctype="multipart/form-data">
                 
@@ -57,7 +64,9 @@
 
                   <div>
                       <label for="password">Password (min 8 characters, 1 uppercase, 1 special):</label>
-                      <input type="password" id="password" name="password" minlength="8" placeholder="e.g. Pass123!"required>
+
+        <!-- Pattern enforces the complexity requirements -->
+                      <input type="password" id="password" name="password" minlength="8" pattern="(?=.*[A-Z])(?=.*[!@#$%^&*]).*" placeholder="e.g. Pass123!"required>
                   </div>
 
                   <div>
@@ -93,7 +102,7 @@
                        <label for="lifestyle">Lifestyle</label><br>
 
                        <input type="checkbox" id="gaming" name="genre" value="gaming">
-                       <label for="gaming">Gaming</label>
+                       <label for="gaming">Gaming</label><br>
 
                        <input type="checkbox" id="travel" name="genre" value="travel">
                        <label for="travel">Travel</label>

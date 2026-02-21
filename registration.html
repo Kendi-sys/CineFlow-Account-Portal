@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CineFlow Creator Registration</title>
+
+<!-- Internal css styling of the form -->
+    <style>
+
+/*styling of the form layout for spacing and neater presentation*/        
+  div {
+    margin-bottom: 20px; 
+  }
+
+/* Find labels for required inputs and add a red asterisk */
+    label:has(+ input[required]):after,
+    label:has(+ fieldset[required]):after {
+        content: " *";
+        color: red;
+        font-weight: bold;
+            }
+             </style>    
+</head>
+
+<!-- Registration form for CineFlow Creator Program -->
+<body>
+
+    <header>
+        <h1>Join the CineFlow Creator Program</h1>
+    </header>
+
+    <main>
+        <section id="promo">
+            <h2>Welcome Video</h2>
+            <video src="/Users/macbook/Downloads/Promo Video.mp4" controls width="800" autoplay muted>
+                Your browser does not support the video tag.
+            </video>
+            </section>
+
+<!-- Registration form with validation i.e required fields-->            
+        <section id="registration">
+            <form action="/submit-registration" method="POST" enctype="multipart/form-data">
+                
+                <fieldset>
+                    <legend>Personal Information</legend>
+        
+        <!-- Including placeholder for valid user input-->  
+                    <div>
+                      <label for="fullname">Full Name:</label>
+                      <input type="text" id="fullname" name="fullname" placeholder="e.g. Bee Beyonce" required>
+                   </div>
+                            
+                  <div>
+                      <label for="email">Email Address:</label>
+                      <input type="email" id="email" name="email" placeholder="e.g. Bee@example.com" required>
+                  </div>
+
+                  <div>
+                      <label for="password">Password (min 8 characters, 1 uppercase, 1 special):</label>
+                      <input type="password" id="password" name="password" minlength="8" placeholder="e.g. Pass123!"required>
+                  </div>
+
+                  <div>
+                      <label for="dob">Date of Birth:</label>
+                      <input type="date" id="dob" name="dob" max="2008-02-21" required>
+                  </div>
+
+                  <div>
+                     <label for="volume">Expected Weekly Upload Volume (0-10):</label>
+
+
+                     <!-- ISynchronized range slider and number input for expected upload volume-->  
+                     <input type="range" id="volume" name="volume" min="0" max="10" step="1" value="1" oninput="document.getElementById('volume_num').value = this.value">
+                     <input type="number" id="volume_num" name="volume" min="0" max="10" style="width: 50px;" oninput="document.getElementById('volume').value = this.value">
+                  </div>
+
+                  <div>
+                    <label for="profile_pic">Profile Picture (.jpg, .png):</label>
+                    <input type="file" id="profile_pic" name="profile_pic" accept=".jpg, .jpeg, .png" required>
+                  </div>
+
+                    </fieldset>
+
+                <fieldset>
+                    <legend>Channel Details</legend>
+                    <p>Please select the content genres you're interested in:</p>
+
+                       <legend>Content Genres</legend>
+                       <input type="checkbox" id="tech" name="genre" value="tech">
+                       <label for="tech">Tech</label><br>
+            
+                       <input type="checkbox" id="lifestyle" name="genre" value="lifestyle">
+                       <label for="lifestyle">Lifestyle</label><br>
+
+                       <input type="checkbox" id="gaming" name="genre" value="gaming">
+                       <label for="gaming">Gaming</label>
+
+                       <input type="checkbox" id="travel" name="genre" value="travel">
+                       <label for="travel">Travel</label>
+                    </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit">Register Account</button>
+                    <button type="reset">Clear Form</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
